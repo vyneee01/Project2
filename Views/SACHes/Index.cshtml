@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IEnumerable<Quản_Lý_Sách.Models.SACH>
+
+<h2>Quản lý sách</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>Thể loại</th>
+            <th>Số lượng</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var SACH in Model)
+        {
+            <tr>
+                <td>@SACH.TenSach</td>
+                <td>@SACH.TacGia</td>
+                <td>@SACH.SoLuong</td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = SACH.MaSach }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = SACH.MaSach })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Thêm sách mới", "Create", null, new { @class = "btn btn-primary" })
+

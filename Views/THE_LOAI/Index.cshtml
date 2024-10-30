@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Quản_Lý_Sách.Models.THE_LOAI>
+
+<h2>Danh sách thể loại sách</h2>
+
+<p>
+    @Html.ActionLink("Thêm Thể Loại", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Mã Thể Loại</th>
+            <th>Tên Thể Loại</th>
+            <th>Thao Tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var THE_LOAI in Model)
+        {
+            <tr>
+                <td>@THE_LOAI.MaTheLoai</td>
+                <td>@THE_LOAI.TenTheLoai</td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = THE_LOAI.MaTheLoai }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Xóa", "Delete", new { id = THE_LOAI.MaTheLoai }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
